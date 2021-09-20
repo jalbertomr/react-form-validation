@@ -1,15 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 
 const App = () => {
   return (
     <main>
-      <form action="#">
+      <Form_styled action="">
          <label htmlFor="">User</label>
          <input type="text" placeholder="user"></input>
          <p>This is on the react application</p>
-      </form>
+      </Form_styled>
     </main>
   );
 }
+
+const Form_styled = styled.form`
+  background: #bbb;
+  `;
 
 export default App;

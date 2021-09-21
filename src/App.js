@@ -1,29 +1,20 @@
 import React from "react";
-import { Form_styled, Label, GroupInput, Input, MsgInputError, IconValidation,
-DivTerms, DivErrorFormMsg, DivSubmitCentered, Button, PMsgSuccess} from "./elements/formulary.js";
+import { Form_styled, DivTerms, DivErrorFormMsg, DivSubmitCentered, 
+Button, PMsgSuccess} from "./elements/formulary.js";
+import DivInput from "./components/DivInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle ,faExclamationTriangle} from "@fortawesome/free-solid-svg-icons";
+import { faExclamationTriangle} from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   return (
     <main>
       <Form_styled action="">
-        <div>
-          <Label htmlFor="user">User</Label>
-          <GroupInput>
-            <Input type="text" placeholder="user" id="user"/>
-            <IconValidation icon={faCheckCircle} />
-          </GroupInput>
-          <MsgInputError>This is on the react application</MsgInputError>
-        </div>
-        <div>
-          <Label htmlFor="user">email</Label>
-          <GroupInput>
-            <Input type="email" placeholder="email" id="email"/>
-            <IconValidation icon={faCheckCircle} />
-          </GroupInput>
-          <MsgInputError>This is on the react application</MsgInputError>
-        </div>
+        <DivInput/>
+        <DivInput/>
+        <DivInput/>
+        <DivInput/>
+        <DivInput/>
+        
         <DivTerms>
           <label>
             <input type="checkbox" name='terms' id='terms'/>

@@ -16,6 +16,14 @@ const App = () => {
           </GroupInput>
           <MsgInputError>This is on the react application</MsgInputError>
         </div>
+        <div>
+          <Label htmlFor="user">email</Label>
+          <GroupInput>
+            <Input type="email" placeholder="email" id="email"/>
+            <IconValidation icon={faCheckCircle} />
+          </GroupInput>
+          <MsgInputError>This is on the react application</MsgInputError>
+        </div>
         <DivTerms>
           <label>
             <input type="checkbox" name='terms' id='terms'/>

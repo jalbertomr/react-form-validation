@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const colors = {
   border: "#0075FF",
-  error: "#bb2929",
-  success: "#1ed12d",
+  buttonover: "#1155FF",
+  error: "#EE5533",
+  success: "#119200",
 };
 const Form_styled = styled.form`
   display: grid;
@@ -50,6 +51,7 @@ const MsgInputError = styled.form`
   font-size: 12px;
   color: ${colors.error};
   margin-bottom: 0;
+  display: none;
 `;
 
 const IconValidation = styled(FontAwesomeIcon)`
@@ -58,7 +60,62 @@ const IconValidation = styled(FontAwesomeIcon)`
   bottom: 14px;
   z-index: 100;
   font-size: 16px;
-  /*opacity: 0; */
+  opacity: 0; 
 `;
 
-export { Form_styled, Label, GroupInput, Input, MsgInputError, IconValidation };
+const DivTerms = styled.div`
+  grid-column: span 2;
+
+  input {
+      margin-right: 10px;
+  }
+`;
+
+const DivErrorFormMsg = styled.div`
+  grid-column: span 2;
+  height: 45px;
+  line-height: 45px;
+  background: ${colors.error};
+  padding: 0 15px;
+  border-radius: 3px; 
+  p {
+      margin: 0;
+  }
+  b{
+      margin-left: 10px;
+  }
+`;
+
+const DivSubmitCentered = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: span 2;
+`;
+
+const Button = styled.button`
+    height: 45px;
+    line-height: 45px;
+    width: 30%;
+    background: #0075ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s easy all;
+
+    &:hover {
+       box-shadow: 5px 5px 5px rgba(163,163,163, 1);
+       background: ${colors.buttonover};
+    }
+`;
+
+const PMsgSuccess = styled.p`
+    font-size: 14px;
+    color: ${colors.success};
+    display: none;
+`;
+
+export { Form_styled, Label, GroupInput, Input, MsgInputError, IconValidation,
+         DivTerms, DivErrorFormMsg, DivSubmitCentered, Button, PMsgSuccess};

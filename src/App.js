@@ -1,6 +1,8 @@
 import React from "react";
-import { Form_styled, Label, GroupInput, Input, MsgInputError, IconValidation} from "./elements/formulary.js";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { Form_styled, Label, GroupInput, Input, MsgInputError, IconValidation,
+DivTerms, DivErrorFormMsg, DivSubmitCentered, Button, PMsgSuccess} from "./elements/formulary.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle ,faExclamationTriangle} from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   return (
@@ -14,6 +16,22 @@ const App = () => {
           </GroupInput>
           <MsgInputError>This is on the react application</MsgInputError>
         </div>
+        <DivTerms>
+          <label>
+            <input type="checkbox" name='terms' id='terms'/>
+            I Accept terms and conditions.
+          </label>
+        </DivTerms>
+        <DivErrorFormMsg>
+          <p>
+            <FontAwesomeIcon icon={faExclamationTriangle}/>
+            <b>Error</b>Please, Check your data and accept terms.
+          </p>
+        </DivErrorFormMsg>
+        <DivSubmitCentered>
+          <Button type="submit" >Submit</Button>
+          <PMsgSuccess>Data send successfully!</PMsgSuccess>
+        </DivSubmitCentered>
       </Form_styled>
     </main>
   );

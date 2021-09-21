@@ -22,12 +22,12 @@ const App = () => {
             I Accept terms and conditions.
           </label>
         </DivTerms>
-        <DivErrorFormMsg>
+        {false && <DivErrorFormMsg>
           <p>
             <FontAwesomeIcon icon={faExclamationTriangle}/>
             <b>Error</b>Please, Check your data and accept terms.
           </p>
-        </DivErrorFormMsg>
+        </DivErrorFormMsg>}
         <DivSubmitCentered>
           <Button type="submit" >Submit</Button>
           <PMsgSuccess>Data send successfully!</PMsgSuccess>

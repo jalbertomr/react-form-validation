@@ -2,7 +2,8 @@ import React from "react";
 import {Label, GroupInput, Input, IconValidation, MsgInputError} from "../elements/formulary.js";
 import {faCheckCircle, faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 
-const DivInput = ({state, changeState, type, label, placeholder, name, msginputerror, regexp}) => {
+const DivInput = ({state, changeState, type, label, placeholder, name, msginputerror, 
+  regexp, functionValPass}) => {
   const onChange = (e) => {
     changeState({...state, field: e.target.value});
   };
@@ -14,6 +15,10 @@ const DivInput = ({state, changeState, type, label, placeholder, name, msginpute
       } else {
         changeState({...state, valid: 'false'});
       }
+    }
+
+    if(functionValPass){
+      functionValPass();
     }
   };
 

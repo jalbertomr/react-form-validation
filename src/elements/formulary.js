@@ -7,7 +7,7 @@ const colors = {
   error: "#EE5533",
   success: "#119200",
 };
-const Form_styled = styled.form`
+const FormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -38,16 +38,16 @@ const Input = styled.input`
   background: white;
   padding: 0 40px 0 10px;
   transition: 0.3s ease all;
-  border: 3px solid trasparent;
+  border: 3px solid transparent;
   
   &:focus {
       border: 5px solid ${colors.border};
       outline: none;
-      shadow-box: 3px 3px 5px rgba( 163,163, 163, 0.4);
+      box-shadow: 3px 3px 5px rgba( 163,163, 163, 0.4);
   }
 `;
 
-const MsgInputError = styled.form`
+const MsgInputError = styled.p`
   font-size: 12px;
   color: ${colors.error};
   margin-bottom: 0;
@@ -103,7 +103,7 @@ const Button = styled.button`
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    transition: .1s easy all;
+    transition: .1s ease all;
 
     &:hover {
        box-shadow: 5px 5px 5px rgba(163,163,163, 1);
@@ -117,5 +117,5 @@ const PMsgSuccess = styled.p`
     display: none;
 `;
 
-export { Form_styled, Label, GroupInput, Input, MsgInputError, IconValidation,
+export { FormStyled, Label, GroupInput, Input, MsgInputError, IconValidation,
          DivTerms, DivErrorFormMsg, DivSubmitCentered, Button, PMsgSuccess};

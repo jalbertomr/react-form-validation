@@ -2,15 +2,15 @@ import React from "react";
 import {Label, GroupInput, Input, IconValidation, MsgInputError} from "../elements/formulary.js";
 import {faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 
-const DivInput = () => {
+const DivInput = ({type, label, placeholder, name, msginputerror, regexp}) => {
   return (
     <div>
-        <Label htmlFor="user">User</Label>
+        <Label htmlFor={name}>{label}</Label>
         <GroupInput>
-          <Input type="text" placeholder="user" id="user"/>
+          <Input type={type} placeholder={placeholder} id={name}/>
           <IconValidation icon={faCheckCircle} />
         </GroupInput>
-        <MsgInputError>This is on the react application</MsgInputError>
+        <MsgInputError>{msginputerror}</MsgInputError>
     </div>
   );
 };

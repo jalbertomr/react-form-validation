@@ -21,6 +21,7 @@ const App = () => {
   const [email, changeEmail] = useState({field:'', valid: null});
   const [telephone, changeTelephone] = useState({field:'', valid: null});
   const [terms, changeTerms] = useState(false);
+  const [validForm, changeValidForm] = useState(null);
     
   const validPassword2 = (state) => {
     if( password.field.length > 0){
@@ -40,9 +41,32 @@ const App = () => {
     changeTerms(e.target.checked);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    
+    if(user.valid === 'true' && name.valid === 'true' && password.valid === 'true' 
+       && password2.valid === 'true' && email.valid === 'true' && telephone.valid === 'true'
+       && terms){
+         changeValidForm(true);
+         changeUser({field:'', valid: null});
+         changeName({field:'', valid: null});
+         changePassword({field:'', valid: null});
+         changePassword2({field:'', valid: null});
+         changeEmail({field:'', valid: null});
+         changeTelephone({field:'', valid: null});
+         changeTerms(false);
+
+         // .... Do the next process with the Form Data
+
+         setTimeout(() =>{ changeValidForm(null);} ,5000);     
+       } else {
+         changeValidForm(false);
+       }
+  }
+
   return (
     <main>
-      <FormStyled action="">
+      <FormStyled action="" onSubmit={onSubmit}>
         <DivInput state={user} changeState={changeUser} type="text" label="User" 
         placeholder="type the user" name="user" 
         msginputerror="The user must have between 4 and 16 digits of numbers, leters and '_'." 
@@ -70,11 +94,12 @@ const App = () => {
         
         <DivTerms>
           <label>
-            <input state={terms} checked={terms} onChange={onChangeTerms} type="checkbox" name='terms' id='terms'/>
+            <input state={terms} checked={terms} onChange={onChangeTerms} 
+            type="checkbox" name='terms' id='terms'/>
             I Accept terms and conditions.
           </label>
         </DivTerms>
-        {false && <DivErrorFormMsg>
+        {validForm === false && <DivErrorFormMsg>
           <p>
             <FontAwesomeIcon icon={faExclamationTriangle}/>
             <b>Error</b>Please, Check your data and accept terms.
@@ -82,7 +107,7 @@ const App = () => {
         </DivErrorFormMsg>}
         <DivSubmitCentered>
           <Button type="submit" >Submit</Button>
-          <PMsgSuccess>Data send successfully!</PMsgSuccess>
+          {!validForm === false && <PMsgSuccess>Data send successfully!</PMsgSuccess>}
         </DivSubmitCentered>
       </FormStyled>
     </main>
